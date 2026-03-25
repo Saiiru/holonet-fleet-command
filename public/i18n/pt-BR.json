@@ -1,0 +1,10 @@
+{
+  "app": {
+    "title": "HoloNet Fleet Command",
+    "subtitle": "Console de inteligência de frota e alocação estratégica de missões"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "fleet": "Registro de Frota"
+  }
+}
