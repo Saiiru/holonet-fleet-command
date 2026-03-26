@@ -1,1 +1,63 @@
-<p>fleet-page works!</p>
+<section class="page">
+  <header class="page__header">
+    <div>
+      <p class="page__eyebrow">Fleet Registry</p>
+      <h2>Operational Starship Reference</h2>
+      <p>Tactical consultation layer for pilots, logistics officers and fleet command.</p>
+    </div>
+  </header>
+
+  @if (vm$ | async; as vm) {
+    <section class="toolbar card-shell">
+      <div class="toolbar__copy">
+        <h3>Fleet Search</h3>
+        <p>Review active starship profiles, operational readiness and transport suitability.</p>
+      </div>
+
+      <mat-form-field appearance="outline" class="search-field">
+        <mat-label>Search fleet</mat-label>
+        <input matInput [formControl]="searchControl" placeholder="Name, model or manufacturer" />
+      </mat-form-field>
+    </section>
+
+    @if (vm.loading) {
+      <div class="state state--loading">
+        <mat-spinner diameter="40"></mat-spinner>
+        <p>Loading fleet registry...</p>
+      </div>
+    } @else if (vm.error) {
+      <section class="card-shell state">
+        <p>{{ vm.error }}</p>
+      </section>
+    } @else {
+      <section class="summary-grid">
+        <article class="summary-card card-shell">
+          <span>Total Assets</span>
+          <strong>{{ vm.summary.total }}</strong>
+        </article>
+
+        <article class="summary-card card-shell">
+          <span>Manufacturers</span>
+          <strong>{{ vm.summary.manufacturers }}</strong>
+        </article>
+
+        <article class="summary-card card-shell">
+          <span>Hyperspace Ready</span>
+          <strong>{{ vm.summary.hyperspaceReady }}</strong>
+        </article>
+      </section>
+
+      @if (vm.filteredStarships.length === 0) {
+        <section class="card-shell state">
+          <p>No starships match the current filter.</p>
+        </section>
+      } @else {
+        <section class="fleet-grid">
+          @for (starship of vm.filteredStarships; track starship.id) {
+            <app-starship-card [starship]="starship" />
+          }
+        </section>
+      }
+    }
+  }
+</section>
