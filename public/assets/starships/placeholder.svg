@@ -1,0 +1,11 @@
+<svg width="640" height="360" viewBox="0 0 640 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="360" rx="24" fill="#08101E"/>
+  <rect x="16" y="16" width="608" height="328" rx="18" stroke="#1E293B" stroke-width="2"/>
+  <path d="M146 213L282 171L349 126L444 139L494 171L412 185L360 223L246 239L146 213Z" fill="#0F172A" stroke="#67E8F9" stroke-width="2"/>
+  <path d="M299 164L330 150L389 157L417 170L359 178L299 164Z" fill="#111827"/>
+  <circle cx="509" cy="74" r="2" fill="#67E8F9"/>
+  <circle cx="533" cy="102" r="1.5" fill="#67E8F9"/>
+  <circle cx="472" cy="113" r="1.5" fill="#67E8F9"/>
+  <text x="32" y="52" fill="#67E8F9" font-size="20" font-family="Arial, sans-serif">HOLO FLEET VISUAL</text>
+  <text x="32" y="86" fill="#94A3B8" font-size="16" font-family="Arial, sans-serif">No curated asset available</text>
+</svg>
