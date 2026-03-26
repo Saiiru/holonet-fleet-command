@@ -1,59 +1,55 @@
-# HolonetFleetCommand
+# VEGA Ops Bench
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.2.
+**VEGA Ops Bench** is an Angular enterprise-style console for electronics project management, power planning, and component registry.
 
-## Development server
+## Purpose
 
-To start a local development server, run:
+The application models a real-world electronics build workflow, helping users plan, document, and validate modular projects. It centralizes component data, power budgets, compatibility, and operational documentation.
 
-```bash
-ng serve
-```
+## Tech Stack
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Angular
+- TypeScript
+- SCSS
+- RxJS
+- Angular Material
+- REST API (mock/SWAPI)
+- Jasmine + Karma
+- GitHub Actions
 
-## Code scaffolding
+## Architecture Highlights
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- DTO to domain model mapping
+- Standalone Angular structure
+- Container vs presentational component split
+- Reactive search with RxJS
+- Local asset pipeline for component images
+- CI pipeline with GitHub Actions
 
-```bash
-ng generate component component-name
-```
+## Current MVP
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- Projects dashboard (coming soon)
+- Component catalog (ex-fleet registry)
+- Reactive search
+- Operational component cards
+- Curated local image pipeline
+- Base CI workflow
 
-```bash
-ng generate --help
-```
+## Next Steps
 
-## Building
+- Project detail/build sheet
+- Power planner
+- VEGA Assistant (project copilot)
+- NgRx for state management
+- GraphQL integration for enriched detail view
+- i18n
 
-To build the project run:
+---
 
-```bash
-ng build
-```
+**Pitch:**
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+> VEGA Ops Bench is a console for planning and managing electronics builds, organizing components, power budgets, compatibility, and assembly documentation. It’s designed for real-world use by makers, engineers, and hobbyists.
 
-## Running unit tests
+---
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+For more details, see [docs/REQUIREMENTS-COVERAGE.md](docs/REQUIREMENTS-COVERAGE.md).
