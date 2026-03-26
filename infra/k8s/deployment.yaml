@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vega-ops-bench
+  labels:
+    app: vega-ops-bench
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: vega-ops-bench
+  template:
+    metadata:
+      labels:
+        app: vega-ops-bench
+    spec:
+      containers:
+        - name: vega-ops-bench
+          image: ghcr.io/saiiru/holonet-fleet-command:latest
+          ports:
+            - containerPort: 80
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 80
+            initialDelaySeconds: 10
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 300m
+              memory: 256Mi
