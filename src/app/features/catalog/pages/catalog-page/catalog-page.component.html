@@ -1,0 +1,63 @@
+<section class="page">
+  <header class="page__header">
+    <div>
+      <p class="page__eyebrow">Catalog</p>
+      <h2>Technical Reference Workspace</h2>
+      <p>Operational inventory for platform services, lab assets, workspace modules and VEGA building blocks.</p>
+    </div>
+  </header>
+
+  @if (vm$ | async; as vm) {
+    <section class="toolbar card-shell">
+      <div class="toolbar__copy">
+        <h3>Catalog Search</h3>
+        <p>Explore modules, owners, categories and technical capabilities without leaving the hub.</p>
+      </div>
+
+      <mat-form-field appearance="outline" class="search-field">
+        <mat-label>Search catalog</mat-label>
+        <input matInput [formControl]="searchControl" placeholder="Name, category, owner or tag" />
+      </mat-form-field>
+    </section>
+
+    @if (vm.loading) {
+      <div class="state state--loading">
+        <mat-spinner diameter="40"></mat-spinner>
+        <p>Loading catalog...</p>
+      </div>
+    } @else if (vm.error) {
+      <section class="card-shell state">
+        <p>{{ vm.error }}</p>
+      </section>
+    } @else {
+      <section class="summary-grid">
+        <article class="summary-card card-shell">
+          <span>Total Entries</span>
+          <strong>{{ vm.summary.total }}</strong>
+        </article>
+
+        <article class="summary-card card-shell">
+          <span>Categories</span>
+          <strong>{{ vm.summary.categories }}</strong>
+        </article>
+
+        <article class="summary-card card-shell">
+          <span>Active</span>
+          <strong>{{ vm.summary.active }}</strong>
+        </article>
+      </section>
+
+      @if (vm.filteredEntries.length === 0) {
+        <section class="card-shell state">
+          <p>No catalog entries match the current filter.</p>
+        </section>
+      } @else {
+        <section class="catalog-grid">
+          @for (entry of vm.filteredEntries; track entry.id) {
+            <app-catalog-entry-card [entry]="entry" />
+          }
+        </section>
+      }
+    }
+  }
+</section>

@@ -4,26 +4,58 @@ export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'dashboard',
+    redirectTo: 'today',
   },
   {
-    path: 'dashboard',
-    title: 'Dashboard | HoloNet Fleet Command',
+    path: 'today',
+    title: 'Today | VEGA Ops Hub',
     loadComponent: () =>
-      import('./features/dashboard/pages/dashboard-page/dashboard-page.component').then(
-        (m) => m.DashboardPageComponent,
+      import('./features/today/pages/today-page/today-page.component').then(
+        (m) => m.TodayPageComponent,
       ),
   },
   {
-    path: 'fleet',
-    title: 'Fleet Registry | HoloNet Fleet Command',
+    path: 'projects',
+    title: 'Projects | VEGA Ops Hub',
     loadComponent: () =>
-      import('./features/fleet/pages/fleet-page/fleet-page.component').then(
-        (m) => m.FleetPageComponent,
+      import('./features/projects/pages/projects-page/projects-page.component').then(
+        (m) => m.ProjectsPageComponent,
+      ),
+  },
+  {
+    path: 'tasks',
+    title: 'Tasks | VEGA Ops Hub',
+    loadComponent: () =>
+      import('./features/tasks/pages/tasks-page/tasks-page.component').then(
+        (m) => m.TasksPageComponent,
+      ),
+  },
+  {
+    path: 'catalog',
+    title: 'Catalog | VEGA Ops Hub',
+    loadComponent: () =>
+      import('./features/catalog/pages/catalog-page/catalog-page.component').then(
+        (m) => m.CatalogPageComponent,
+      ),
+  },
+  {
+    path: 'notes',
+    title: 'Notes | VEGA Ops Hub',
+    loadComponent: () =>
+      import('./features/notes/pages/notes-page/notes-page.component').then(
+        (m) => m.NotesPageComponent,
+      ),
+  },
+  {
+    path: 'vega',
+    title: 'VEGA Assistant | VEGA Ops Hub',
+    loadComponent: () =>
+      import('./features/vega-assistant/pages/vega-assistant-page/vega-assistant-page.component').then(
+        (m) => m.VegaAssistantPageComponent,
       ),
   },
   {
     path: '**',
-    redirectTo: 'dashboard',
+    redirectTo: 'today',
   },
 ];

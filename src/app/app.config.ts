@@ -11,6 +11,7 @@ import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { provideTranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 
+import { API_BASE_URL, apiConfig } from './core/config/api.config';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
@@ -24,6 +25,7 @@ export const appConfig: ApplicationConfig = {
       }),
     ),
     provideHttpClient(withInterceptorsFromDi()),
+    { provide: API_BASE_URL, useValue: apiConfig.baseUrl },
     provideStore(),
     provideStoreDevtools({
       maxAge: 25,

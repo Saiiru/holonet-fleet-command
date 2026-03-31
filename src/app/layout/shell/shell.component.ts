@@ -24,14 +24,34 @@ import { MatListModule } from '@angular/material/list';
 export class ShellComponent {
   readonly navItems = [
     {
-      labelKey: 'nav.dashboard',
-      icon: 'dashboard',
-      route: '/dashboard',
+      labelKey: 'nav.today',
+      icon: 'today',
+      route: '/today',
     },
     {
-      labelKey: 'nav.fleet',
-      icon: 'rocket_launch',
-      route: '/fleet',
+      labelKey: 'nav.projects',
+      icon: 'folder_open',
+      route: '/projects',
+    },
+    {
+      labelKey: 'nav.tasks',
+      icon: 'checklist',
+      route: '/tasks',
+    },
+    {
+      labelKey: 'nav.catalog',
+      icon: 'inventory_2',
+      route: '/catalog',
+    },
+    {
+      labelKey: 'nav.notes',
+      icon: 'note_stack',
+      route: '/notes',
+    },
+    {
+      labelKey: 'nav.vega',
+      icon: 'psychology',
+      route: '/vega',
     },
   ];
 }

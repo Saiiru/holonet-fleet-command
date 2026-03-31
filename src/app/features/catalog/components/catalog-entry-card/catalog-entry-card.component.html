@@ -1,0 +1,32 @@
+<mat-card class="catalog-entry-card">
+  <div class="catalog-entry-card__topbar">
+    <span class="catalog-entry-card__category">{{ entry.category }}</span>
+    <span [class]="statusClass">{{ statusLabel }}</span>
+  </div>
+
+  <mat-card-content class="catalog-entry-card__content">
+    <section class="catalog-entry-card__hero">
+      <p class="catalog-entry-card__eyebrow">Catalog Entry</p>
+      <h3>{{ entry.name }}</h3>
+      <p>{{ entry.summary }}</p>
+    </section>
+
+    <dl class="catalog-entry-card__stats">
+      <div>
+        <dt>Owner</dt>
+        <dd>{{ entry.owner }}</dd>
+      </div>
+
+      <div>
+        <dt>Entry ID</dt>
+        <dd>{{ entry.id }}</dd>
+      </div>
+    </dl>
+
+    <mat-chip-set class="catalog-entry-card__tags" aria-label="Catalog entry tags">
+      @for (tag of entry.tags; track tag) {
+        <mat-chip>{{ tag }}</mat-chip>
+      }
+    </mat-chip-set>
+  </mat-card-content>
+</mat-card>

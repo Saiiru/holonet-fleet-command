@@ -1,10 +1,14 @@
 {
   "app": {
-    "title": "HoloNet Fleet Command",
-    "subtitle": "Console de inteligência de frota e alocação estratégica de missões"
+    "title": "VEGA Ops Hub",
+    "subtitle": "Workspace local-first para operações, projetos, tarefas, notas e assistência técnica"
   },
   "nav": {
-    "dashboard": "Dashboard",
-    "fleet": "Registro de Frota"
+    "today": "Today",
+    "projects": "Projetos",
+    "tasks": "Tarefas",
+    "catalog": "Catálogo",
+    "notes": "Notas",
+    "vega": "VEGA"
   }
 }

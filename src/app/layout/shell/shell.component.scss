@@ -76,6 +76,9 @@
     position: sticky;
     top: 0;
     z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
     background: rgba(8, 15, 30, 0.72);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-soft);
@@ -89,7 +92,27 @@
     letter-spacing: 0.04em;
   }
 
+  &__toolbar-caption {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
   &__content {
     padding: 1.5rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .shell {
+    &__sidenav {
+      width: 100%;
+      max-width: 320px;
+    }
+
+    &__toolbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 }
