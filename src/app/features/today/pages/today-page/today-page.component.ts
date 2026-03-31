@@ -29,6 +29,20 @@ import { TaskItem } from '../../../tasks/models/task.model';
         <p>Short-cycle visibility for tasks due now, active projects, note pressure and VEGA guidance.</p>
       </header>
 
+      <section class="hero-grid">
+        <article class="hero-card hero-card--primary">
+          <p class="hero-card__kicker">Command View</p>
+          <h3>Keep today narrow, visible and actionable.</h3>
+          <p>Use the daily surface to capture work fast and keep the active queue small enough to move.</p>
+        </article>
+
+        <article class="hero-card hero-card--accent">
+          <p class="hero-card__kicker">Workspace Mode</p>
+          <strong>{{ (vm$ | async)?.summary?.today ?? 0 }}</strong>
+          <span>items due today</span>
+        </article>
+      </section>
+
       <section class="quick-add card-shell">
         <div class="quick-add__copy">
           <h3>Quick Capture</h3>
@@ -140,6 +154,65 @@ import { TaskItem } from '../../../tasks/models/task.model';
         max-width: 60ch;
       }
 
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.8fr minmax(220px, 0.7fr);
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .hero-card {
+        padding: 1.2rem 1.25rem;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--border-soft);
+        box-shadow: var(--shadow-panel);
+      }
+
+      .hero-card--primary {
+        background:
+          radial-gradient(circle at top right, rgba(92, 246, 255, 0.12), transparent 28%),
+          linear-gradient(180deg, rgba(18, 31, 54, 0.94) 0%, rgba(8, 16, 29, 0.94) 100%);
+      }
+
+      .hero-card--accent {
+        display: grid;
+        align-content: end;
+        background:
+          radial-gradient(circle at top left, rgba(255, 196, 107, 0.16), transparent 32%),
+          linear-gradient(180deg, rgba(24, 28, 44, 0.94) 0%, rgba(12, 17, 28, 0.94) 100%);
+      }
+
+      .hero-card__kicker {
+        margin: 0 0 0.45rem;
+        color: var(--accent-cyan);
+        font-size: 0.74rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .hero-card h3,
+      .hero-card strong {
+        margin: 0;
+        font-family: 'Rajdhani', sans-serif;
+      }
+
+      .hero-card h3 {
+        font-size: 1.8rem;
+        line-height: 0.98;
+        max-width: 18ch;
+      }
+
+      .hero-card strong {
+        font-size: 3rem;
+        line-height: 0.9;
+      }
+
+      .hero-card span,
+      .hero-card p:last-child {
+        color: var(--text-secondary);
+      }
+
       .quick-add {
         display: grid;
         grid-template-columns: 1.1fr 1fr;
@@ -179,22 +252,23 @@ import { TaskItem } from '../../../tasks/models/task.model';
 
       .card,
       .card-shell {
-        background: var(--bg-card);
+        background: var(--bg-card-elevated);
         color: var(--text-primary);
         border: 1px solid var(--border-soft);
-        border-radius: 18px;
-        box-shadow: none;
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-soft);
       }
 
       .card-shell {
-        padding: 1rem;
+        padding: 1rem 1.1rem;
       }
 
       .metric {
         display: block;
         margin-bottom: 0.5rem;
-        font-size: 2rem;
-        line-height: 1;
+        font-family: 'Rajdhani', sans-serif;
+        font-size: 2.4rem;
+        line-height: 0.95;
       }
 
       .list-card mat-card-content {
@@ -216,6 +290,7 @@ import { TaskItem } from '../../../tasks/models/task.model';
       }
 
       @media (max-width: 960px) {
+        .hero-grid,
         .quick-add,
         .quick-add__fields,
         .grid,

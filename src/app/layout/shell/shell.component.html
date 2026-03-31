@@ -1,9 +1,18 @@
 <mat-sidenav-container class="shell">
   <mat-sidenav mode="side" opened class="shell__sidenav">
     <div class="shell__brand">
-      <p class="shell__eyebrow">VEGA OPS</p>
-      <h1>Ops Hub</h1>
+      <div class="shell__brand-mark">
+        <span class="shell__brand-orb"></span>
+        <div>
+          <p class="shell__eyebrow">VEGA OPS</p>
+          <h1>Ops Hub</h1>
+        </div>
+      </div>
       <p class="shell__subtitle">{{ 'app.subtitle' | translate }}</p>
+      <div class="shell__status-row">
+        <span class="shell__status-pill shell__status-pill--online">Local-first</span>
+        <span class="shell__status-pill">Companion Ready</span>
+      </div>
     </div>
 
     <nav class="shell__nav">
@@ -22,10 +31,22 @@
 
   <mat-sidenav-content class="shell__content-area">
     <mat-toolbar class="shell__toolbar">
-      <div class="shell__toolbar-title">
-        {{ 'app.title' | translate }}
+      <div class="shell__toolbar-block">
+        <div class="shell__toolbar-title">
+          {{ 'app.title' | translate }}
+        </div>
+        <div class="shell__toolbar-caption">Local-first engineering workspace</div>
       </div>
-      <div class="shell__toolbar-caption">Local-first engineering workspace</div>
+      <div class="shell__toolbar-metrics">
+        <div class="shell__metric">
+          <span>Mode</span>
+          <strong>Workspace</strong>
+        </div>
+        <div class="shell__metric">
+          <span>Surface</span>
+          <strong>MVP</strong>
+        </div>
+      </div>
     </mat-toolbar>
 
     <main class="shell__content">

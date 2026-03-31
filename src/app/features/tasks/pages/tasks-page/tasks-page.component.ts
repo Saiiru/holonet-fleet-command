@@ -33,6 +33,20 @@ import { TaskItem } from '../../models/task.model';
         <p>Operational list wired to the companion service for task creation, review and completion.</p>
       </header>
 
+      <section class="hero-grid">
+        <article class="hero-card hero-card--primary">
+          <p class="hero-card__kicker">Flow Control</p>
+          <h3>Keep the board short, current and executable.</h3>
+          <p>Use the task surface as the main entry point for operational work coming from the companion.</p>
+        </article>
+
+        <article class="hero-card hero-card--accent">
+          <p class="hero-card__kicker">Board State</p>
+          <strong>{{ (vm$ | async)?.summary?.pending ?? 0 }}</strong>
+          <span>pending items</span>
+        </article>
+      </section>
+
       <section class="composer card-shell">
         <div class="composer__copy">
           <h3>Add Task</h3>
@@ -127,6 +141,65 @@ import { TaskItem } from '../../models/task.model';
         max-width: 64ch;
       }
 
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.8fr minmax(220px, 0.7fr);
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .hero-card {
+        padding: 1.2rem 1.25rem;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--border-soft);
+        box-shadow: var(--shadow-panel);
+      }
+
+      .hero-card--primary {
+        background:
+          radial-gradient(circle at top right, rgba(92, 246, 255, 0.12), transparent 28%),
+          linear-gradient(180deg, rgba(18, 31, 54, 0.94) 0%, rgba(8, 16, 29, 0.94) 100%);
+      }
+
+      .hero-card--accent {
+        display: grid;
+        align-content: end;
+        background:
+          radial-gradient(circle at top left, rgba(255, 196, 107, 0.16), transparent 32%),
+          linear-gradient(180deg, rgba(24, 28, 44, 0.94) 0%, rgba(12, 17, 28, 0.94) 100%);
+      }
+
+      .hero-card__kicker {
+        margin: 0 0 0.45rem;
+        color: var(--accent-cyan);
+        font-size: 0.74rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .hero-card h3,
+      .hero-card strong {
+        margin: 0;
+        font-family: 'Rajdhani', sans-serif;
+      }
+
+      .hero-card h3 {
+        font-size: 1.8rem;
+        line-height: 0.98;
+        max-width: 18ch;
+      }
+
+      .hero-card strong {
+        font-size: 3rem;
+        line-height: 0.9;
+      }
+
+      .hero-card span,
+      .hero-card p:last-child {
+        color: var(--text-secondary);
+      }
+
       .composer {
         display: grid;
         grid-template-columns: 1.1fr 1.4fr;
@@ -157,11 +230,11 @@ import { TaskItem } from '../../models/task.model';
 
       .card-shell,
       .tasks-card {
-        background: var(--bg-card);
+        background: var(--bg-card-elevated);
         color: var(--text-primary);
         border: 1px solid var(--border-soft);
-        border-radius: 18px;
-        box-shadow: none;
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-soft);
       }
 
       .summary-grid {
@@ -187,8 +260,9 @@ import { TaskItem } from '../../models/task.model';
       }
 
       .summary-card strong {
-        font-size: 2rem;
-        line-height: 1;
+        font-family: 'Rajdhani', sans-serif;
+        font-size: 2.4rem;
+        line-height: 0.95;
       }
 
       .tasks-card {
@@ -207,6 +281,10 @@ import { TaskItem } from '../../models/task.model';
         color: var(--text-secondary);
       }
 
+      .task-row button {
+        justify-self: end;
+      }
+
       .state {
         display: grid;
         place-items: center;
@@ -220,6 +298,7 @@ import { TaskItem } from '../../models/task.model';
       }
 
       @media (max-width: 980px) {
+        .hero-grid,
         .composer,
         .composer__fields,
         .summary-grid {
